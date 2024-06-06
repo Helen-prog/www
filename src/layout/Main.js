@@ -12,13 +12,13 @@ class Main extends React.Component {
     }
 
     componentDidMount() {
-        fetch("http://omdbapi.com/?apikey=4eb9d7fd&s=matrix")
+        fetch("https://omdbapi.com/?apikey=4eb9d7fd&s=matrix")
             .then(response => response.json())
             .then(data => this.setState({ movies: data.Search, loading: false, count: data.totalResults }))
     }
 
     searchMovies = (str, type='all', page) => {
-        fetch(`http://www.omdbapi.com/?apikey=4eb9d7fd&s=${str}${type
+        fetch(`https://www.omdbapi.com/?apikey=4eb9d7fd&s=${str}${type
             !== 'all' ? `&type=${type}` : ''}${`&page=${page}`}`)
             .then(response => response.json())
             .then(data => this.setState({ movies: data.Search, loading: false, count: data.totalResults }))
